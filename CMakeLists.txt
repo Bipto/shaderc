@@ -116,18 +116,6 @@ add_custom_target(add-copyright
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMENT "Add copyright")
 
-if(MSVC)
-  option(SHADERC_ENABLE_SHARED_CRT
-          "Use the shared CRT instead of the static CRT"
-		  OFF)
-  if (SHADERC_ENABLE_SHARED_CRT)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-  else()
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-  endif()
-endif(MSVC)
-
-
 # Configure subdirectories.
 # We depend on these for later projects, so they should come first.
 add_subdirectory(third_party)
